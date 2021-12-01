@@ -30,7 +30,7 @@ namespace RestApiCRUD.EmployeeData
 
         public Employee GetEmployee(Guid id)
         {
-            throw new NotImplementedException();
+            return employees.SingleOrDefault(x => x.Id == id);
         }
 
         public List<Employee> GetEmployees()
@@ -40,7 +40,9 @@ namespace RestApiCRUD.EmployeeData
 
         public Employee SetEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            employee.Id = Guid.NewGuid();
+            employees.Add(employee);
+            return employee;
         }
     }
 }
